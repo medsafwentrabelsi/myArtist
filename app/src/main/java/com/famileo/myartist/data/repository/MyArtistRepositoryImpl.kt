@@ -1,8 +1,10 @@
 package com.famileo.myartist.data.repository
 
 import com.famileo.myartist.data.model.toArtistData
+import com.famileo.myartist.data.model.toArtistDiscographyData
 import com.famileo.myartist.data.source.MyArtistRemoteDataSource
 import com.famileo.myartist.domain.models.ArtistData
+import com.famileo.myartist.domain.models.ArtistDiscographyData
 import com.famileo.myartist.domain.repositories.MyArtistRepository
 import javax.inject.Inject
 
@@ -19,4 +21,9 @@ class MyArtistRepositoryImpl @Inject constructor(
         }
     }
 
+    override suspend fun fetchArtistDetails(artistId: String): List<ArtistDiscographyData>? {
+        return myArtistRemoteDataSource.fetchArtistDetails(artistId = artistId)?.wsDiscography?.map {
+            it.toArtistDiscographyData()
+        }
+    }
 }

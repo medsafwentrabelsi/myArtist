@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.famileo.myartist.R
 import com.famileo.myartist.core.InjectedViewModelFactory
 import com.famileo.myartist.databinding.FragmentListArtistBinding
@@ -61,6 +62,7 @@ class ArtistListFragment : DaggerFragment() {
 
 
             artistAdapter.onItemClickListener = {
+                findNavController().navigate(ArtistListFragmentDirections.actionArtistListFragmentToArtistDetailsFragment(it.id))
             }
         }
 

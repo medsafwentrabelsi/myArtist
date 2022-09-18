@@ -1,6 +1,7 @@
 package com.famileo.myartist.data.source
 
 import com.famileo.myartist.data.model.WsArtists
+import com.famileo.myartist.data.model.WsArtistsDiscography
 import com.famileo.myartist.data.service.MyArtistRetrofitService
 import timber.log.Timber
 import javax.inject.Inject
@@ -21,4 +22,12 @@ class MyArtistRemoteDataSource @Inject constructor(
         }
     }
 
+    suspend fun fetchArtistDetails(artistId: String): WsArtistsDiscography? {
+        return try {
+            retrofitService.fetchArtistDetails(artistId = artistId)
+        } catch (e: Exception) {
+            Timber.w(e, "An exception occurred during the web service call")
+            null
+        }
+    }
 }

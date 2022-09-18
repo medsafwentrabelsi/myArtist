@@ -9,6 +9,7 @@ import com.famileo.myartist.presentation.activity.MainActivity
 import com.famileo.myartist.presentation.fragments.ArtistDetailsFragment
 import com.famileo.myartist.presentation.fragments.ArtistListFragment
 import com.famileo.myartist.presentation.viewmodels.ArtistsViewModel
+import com.famileo.myartist.presentation.viewmodels.DiscographyViewModel
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Binds
 import dagger.Module
@@ -88,6 +89,10 @@ class MyArtistModule {
         @ViewModelKey(ArtistsViewModel::class)
         abstract fun provideArtistsViewModel(viewModel: ArtistsViewModel): ViewModel
 
+        @Binds
+        @IntoMap
+        @ViewModelKey(DiscographyViewModel::class)
+        abstract fun provideDiscographyViewModel(viewModel: DiscographyViewModel): ViewModel
 
     }
 

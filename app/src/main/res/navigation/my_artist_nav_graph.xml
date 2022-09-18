@@ -20,6 +20,12 @@
         android:id="@+id/artistDetailsFragment"
         android:name="com.famileo.myartist.presentation.fragments.ArtistDetailsFragment"
         android:label="ArtistDetailsFragment"
-        tools:layout="@layout/fragment_details_artist" />
+        tools:layout="@layout/fragment_details_artist">
+
+        <argument
+            android:name="artistId"
+            app:argType="string" />
+    </fragment>
+
 
 </navigation>
