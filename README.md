@@ -1,6 +1,6 @@
 # famileo test
 
-Application android pour afficher/Chercher une liste des artistes.
+Application android pour afficher/Chercher des artistes.
 
 ## Architecture
 
@@ -80,9 +80,9 @@ Ce GIF présente une démonstration de l'application.
 ## A améliorer/ ajouter
 
 - Tests unitaires.
-- Sauvegarder le details d'un artiste dans ROOM.
-- Message d'erruer(pas de connexion internet, erreur de chargement des données).
+- Sauvegarder les details d'un artiste dans ROOM.
+- Message d'erreur(pas de connexion internet, erreur de chargement des données).
 
 ## Temps de réalisation
 
-- Dimanche 19/09: 8h.
+- Dimanche 18/09: 8h.
