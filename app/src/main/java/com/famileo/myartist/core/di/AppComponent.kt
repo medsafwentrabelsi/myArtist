@@ -2,6 +2,8 @@ package com.famileo.myartist.core.di
 
 import com.famileo.myartist.core.MyArtistApplication
 import com.famileo.myartist.core.di.module.AppModule
+import com.famileo.myartist.core.di.module.MyArtistModule
+import com.famileo.myartist.core.di.module.NetworkModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -13,6 +15,8 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         AppModule::class,
+        NetworkModule::class,
+        MyArtistModule::class
 
 
     ]
