@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.famileo.myartist.R
 import com.famileo.myartist.core.InjectedViewModelFactory
@@ -33,18 +34,20 @@ class ArtistDetailsFragment : DaggerFragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val fragmentView: View
         FragmentDetailsArtistBinding.inflate(layoutInflater, container, false).apply {
-            fragmentView = root
-            viewModel.fetchArtistDiscography(artistId = args.artistId)
-            val discographyAdapter = DiscographyAdapter()
-            fragmentArtistDiscographyRecyclerView.adapter = discographyAdapter
 
+            fragmentView = root
+            fragmentArtistDiscographyToolbar.setNavigationOnClickListener { findNavController().popBackStack() }
+
+            val discographyAdapter = DiscographyAdapter()
+            viewModel.fetchArtistDiscography(artistId = args.artistId)
+
+            fragmentArtistDiscographyRecyclerView.adapter = discographyAdapter
             fragmentArtistDiscographyRecyclerView.setVerticalLinearLayoutManager()
             fragmentArtistDiscographyRecyclerView.addItemDecoration(FullMarginDecorator(R.dimen.margin_large))
             fragmentArtistDiscographyRecyclerView.adapter = discographyAdapter
 
             viewModel.fetchArtistDiscography(artistId = args.artistId)
             lifecycleScope.launchWhenCreated {
-
                 viewModel.artistsDiscography.collect {
                     discographyAdapter.submitList(it)
                 }

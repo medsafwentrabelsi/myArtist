@@ -32,8 +32,8 @@ class ArtistListFragment : DaggerFragment() {
         val fragmentView: View
         FragmentListArtistBinding.inflate(layoutInflater, container, false).apply {
             fragmentView = root
-            val artistAdapter = ArtistAdapter()
 
+            val artistAdapter = ArtistAdapter()
 
             fragmentArtistListSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextChange(newText: String?): Boolean {
