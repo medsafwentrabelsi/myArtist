@@ -1,6 +1,5 @@
 package com.famileo.myartist.domain.usescases
 
-import com.famileo.myartist.domain.models.ArtistData
 import com.famileo.myartist.domain.repositories.MyArtistRepository
 import javax.inject.Inject
 
@@ -10,7 +9,7 @@ import javax.inject.Inject
 class FetchArtistUseCase @Inject constructor(
     private val myArtistRepository: MyArtistRepository
 ) {
-    suspend  operator fun invoke(artistName: String): List<ArtistData>? {
-        return myArtistRepository.fetchArtists(artistName)
+    suspend operator fun invoke(artistName: String) {
+        myArtistRepository.fetchArtists(artistName)
     }
 }

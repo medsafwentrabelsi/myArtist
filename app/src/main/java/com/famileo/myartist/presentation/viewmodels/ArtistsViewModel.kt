@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.famileo.myartist.domain.models.toUiArtist
 import com.famileo.myartist.domain.usescases.FetchArtistUseCase
+import com.famileo.myartist.domain.usescases.GetArtistsUseCase
 import com.famileo.myartist.presentation.models.UiArtist
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,6 +17,8 @@ import javax.inject.Inject
 class ArtistsViewModel @Inject constructor(
     /** Fetch artists use case. */
     private var fetchArtistUseCase: FetchArtistUseCase,
+    /** Get artists use case. */
+    private var getArtistsUseCase: GetArtistsUseCase
 ) : ViewModel() {
 
     private val _artistsList: MutableStateFlow<List<UiArtist>?> = MutableStateFlow(null)
@@ -26,7 +29,21 @@ class ArtistsViewModel @Inject constructor(
      */
     fun fetchArtist(artistName: String) {
         viewModelScope.launch {
-            _artistsList.emit(fetchArtistUseCase.invoke(artistName)?.map { it.toUiArtist() })
+            fetchArtistUseCase.invoke(artistName)
+            getArtist()
         }
+    }
+
+    /**
+     *  Get artists.
+     */
+    fun getArtist() {
+        viewModelScope.launch {
+            getArtistsUseCase.invoke().collect { it ->
+                _artistsList.emit(it.map { it.toUiArtist() })
+            }
+        }
+
+
     }
 }

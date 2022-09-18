@@ -1,6 +1,5 @@
 package com.famileo.myartist.data.model
 
-import com.famileo.myartist.domain.models.ArtistData
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -32,6 +31,6 @@ data class WsArtist(
     val type: String = "",
 )
 
-fun WsArtist.toArtistData(): ArtistData {
-    return ArtistData(id = id, name = name, country = country, gender = gender, score = score, type = type)
+fun WsArtist.toArtistEntity(): ArtistEntity {
+    return ArtistEntity(id = id, name = name, country = country, gender = gender, score = score, type = type)
 }

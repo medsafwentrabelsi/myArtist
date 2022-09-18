@@ -2,6 +2,7 @@ package com.famileo.myartist.core.di
 
 import com.famileo.myartist.core.MyArtistApplication
 import com.famileo.myartist.core.di.module.AppModule
+import com.famileo.myartist.core.di.module.DatabaseModule
 import com.famileo.myartist.core.di.module.MyArtistModule
 import com.famileo.myartist.core.di.module.NetworkModule
 import dagger.BindsInstance
@@ -16,6 +17,7 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         NetworkModule::class,
+        DatabaseModule::class,
         MyArtistModule::class
 
 

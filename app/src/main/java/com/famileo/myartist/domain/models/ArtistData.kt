@@ -1,6 +1,7 @@
 package com.famileo.myartist.domain.models
 
 import com.famileo.myartist.core.util.getFlag
+import com.famileo.myartist.data.model.ArtistEntity
 import com.famileo.myartist.presentation.models.UiArtist
 
 /**
@@ -16,5 +17,9 @@ data class ArtistData(
 )
 
 fun ArtistData.toUiArtist(): UiArtist {
+    return (UiArtist(id = id, name = "${name.getFlag(country)} $name", gender = gender, score = score.div(10)))
+}
+
+fun ArtistEntity.toUiArtist(): UiArtist {
     return (UiArtist(id = id, name = "${name.getFlag(country)} $name", gender = gender, score = score.div(10)))
 }

@@ -16,6 +16,7 @@
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/fragment_artist_list_search"
+            app:queryHint="@string/search_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

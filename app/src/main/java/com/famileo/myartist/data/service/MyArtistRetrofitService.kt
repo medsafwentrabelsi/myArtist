@@ -14,9 +14,11 @@ interface MyArtistRetrofitService {
     suspend fun fetchArtists(@Query("query") artistName: String, @Query("fmt") type: String = "json"): WsArtists
 
     @GET("artist/{id}")
-    suspend fun fetchArtistDetails(@Path("id") artistId: String,
-                                   @Query("fmt") type: String = "json",
-                                   @Query("inc") inc: String = "release-groups"): WsArtistsDiscography
+    suspend fun fetchArtistDetails(
+        @Path("id") artistId: String,
+        @Query("fmt") type: String = "json",
+        @Query("inc") inc: String = "release-groups"
+    ): WsArtistsDiscography
 
 
     companion object {
