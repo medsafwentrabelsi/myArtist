@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         app:title="@string/app_name"
         app:navigationIcon="?attr/homeAsUpIndicator"
-        android:background="?colorPrimary"
+        android:background="?colorPrimaryVariant"
         app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
