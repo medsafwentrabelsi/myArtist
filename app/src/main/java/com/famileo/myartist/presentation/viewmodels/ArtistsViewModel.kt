@@ -24,11 +24,15 @@ class ArtistsViewModel @Inject constructor(
     private val _artistsList: MutableStateFlow<List<UiArtist>?> = MutableStateFlow(null)
     val artistsList: StateFlow<List<UiArtist>?> = _artistsList
 
+    private val _progressBarVisibility: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    val progressBarVisibility: StateFlow<Boolean> = _progressBarVisibility
+
     /**
      *  Fetch artists.
      */
     fun fetchArtist(artistName: String) {
         viewModelScope.launch {
+            _progressBarVisibility.emit(true)
             fetchArtistUseCase.invoke(artistName)
             getArtist()
         }
@@ -40,6 +44,7 @@ class ArtistsViewModel @Inject constructor(
     fun getArtist() {
         viewModelScope.launch {
             getArtistsUseCase.invoke().collect { it ->
+                _progressBarVisibility.emit(false)
                 _artistsList.emit(it.map { it.toUiArtist() })
             }
         }

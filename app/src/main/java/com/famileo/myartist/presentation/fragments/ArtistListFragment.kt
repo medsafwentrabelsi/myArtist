@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -32,6 +33,10 @@ class ArtistListFragment : DaggerFragment() {
         val fragmentView: View
         FragmentListArtistBinding.inflate(layoutInflater, container, false).apply {
             fragmentView = root
+
+            data=viewModel
+
+            lifecycleOwner = viewLifecycleOwner
 
             viewModel.getArtist()
 

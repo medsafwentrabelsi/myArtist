@@ -2,14 +2,17 @@
 <resources>
     <!--Margin-->
     <dimen name="margin_medium">8dp</dimen>
-    <dimen name="margin_medium_large">12dp</dimen>
-    <dimen name="margin_second_large">20dp</dimen>
     <dimen name="margin_large">16dp</dimen>
 
     <!--Card view-->
-
     <dimen name="card_corner_radius">15dp</dimen>
     <dimen name="card_elevation">5dp</dimen>
+
+    <!--Lottie-->
+
+    <dimen name="lottie_max_width">150dp</dimen>
+    <dimen name="lottie_max_height">150dp</dimen>
+
 
 
 </resources>
